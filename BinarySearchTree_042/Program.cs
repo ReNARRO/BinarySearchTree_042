@@ -64,6 +64,52 @@ namespace BinarySearchTree_042
                 {
                     parent.leftchild = tmp;
                 }
+                else
+                {
+                    parent.rightchild = tmp;
+                }
+            }
+        }
+        public void inorder(Node ptr)
+        {
+            if(ROOT == null)
+            {
+                Console.WriteLine("Tree is empty");
+                return ;
+            }
+            if (ptr != null)
+            {
+                inorder(ptr.leftchild);
+                Console.WriteLine(ptr.info + "");
+                inorder(ptr.rightchild);
+            }
+        }
+        public void preorder(Node ptr)
+        {
+            if(ROOT == null)
+            {
+                Console.WriteLine("Tree is empty");
+                return ;
+            }
+            if (ptr != null)
+            {
+                Console.WriteLine(ptr.info + "");
+                inorder(ptr.leftchild);               
+                inorder(ptr.rightchild);
+            }
+        }
+        public void postorder(Node ptr)// Performs the postorder traversal of the three
+        {
+            if (ROOT == null)
+            {
+                Console.WriteLine("Tree is empty");
+                return;
+            }
+            if (ptr != null)
+            {                
+                inorder(ptr.leftchild);
+                inorder(ptr.rightchild);
+                Console.WriteLine(ptr.info + "");
             }
         }
         static void Main(string[] args)
